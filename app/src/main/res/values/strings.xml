@@ -3,10 +3,7 @@
 
     <string name="app_name">GaussElimination</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="tytul">Podaj ilość zmiennych</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
-
+    <string name="insert">Enter the number of variables</string>
+    <string name="buttonSubmit">Submit</string>
 
 </resources>
