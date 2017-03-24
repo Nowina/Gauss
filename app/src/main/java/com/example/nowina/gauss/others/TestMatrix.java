@@ -1,4 +1,4 @@
-package com.example.nowina.gauss;
+package com.example.nowina.gauss.others;
 
 public class TestMatrix {
 

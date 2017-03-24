@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.nowina.gauss.R;
-import com.example.nowina.gauss.grid;
+import com.example.nowina.gauss.others.grid;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final EditText txt = (EditText)findViewById(R.id.txt1);
-        Button button = (Button)findViewById(R.id.button1);
+        Button button = (Button)findViewById(R.id.buttonSubmit);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
