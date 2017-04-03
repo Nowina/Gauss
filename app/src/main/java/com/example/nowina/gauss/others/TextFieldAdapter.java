@@ -64,8 +64,9 @@ public class TextFieldAdapter<Type> extends BaseAdapter{
 
     public EditText getItemByXY(int x, int y)
     {
-        return fields[y][x];
+        return fields[x][y];
     }
+
     private int getPositionX(int position)
     {
         return position%xCount;

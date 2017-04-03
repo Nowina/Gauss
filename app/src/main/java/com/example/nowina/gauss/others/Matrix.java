@@ -21,6 +21,7 @@ package com.example.nowina.gauss.others;
      (3) fix to function get (check input)
      (4) + functions get count of rows and columns
      (5) + auto calculating of M and N
+     (6) fixed show() function to return String
      *************************************************************************/
 
     final public class Matrix {
@@ -213,12 +214,13 @@ package com.example.nowina.gauss.others;
         }
 
         // print matrix to standard output
-        public void show() {
+        public String show() {
+            StringBuilder builder = new StringBuilder();
             for (int i = 0; i < M; i++) {
                 for (int j = 0; j < N; j++)
-                    System.out.printf("%9.4f ", data[i][j]);
-                System.out.println();
+                    builder.append(data[i][j]);
             }
+            return builder.toString();
         }
 
         //get row count (4)

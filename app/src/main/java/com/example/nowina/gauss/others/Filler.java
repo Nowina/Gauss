@@ -1,22 +1,28 @@
 package com.example.nowina.gauss.others;
 
+import android.content.Context;
 import android.widget.ListAdapter;
+import android.widget.Toast;
+
+import com.example.nowina.gauss.R;
 
 /**
  * Created by Nowina on 2017-03-24.
  */
 
 public class Filler {
-    int[][] lhs;
-    int[] rhs;
-    int count;
+    private double[][] lhs;
+    private double[] rhs;
+    private int count;
+    Context mContext;
     TextFieldAdapter adapter;
-    public Filler(TextFieldAdapter mAdapter, int mCount)
+    public Filler(TextFieldAdapter mAdapter, int mCount, Context context)
     {
         count = mCount;
         adapter = mAdapter;
-        int[][] lhs = new int[count][count]; //creating table containing x,y,z..... values
-        int[] rhs = new int[count];          //creating table containing values on the right side of equation
+        lhs = new double[count][count]; //creating table containing x,y,z..... values
+        rhs = new double[count];        //creating table containing values on the right side of equation
+        mContext = context;
     }
 
     public void fill()
@@ -25,19 +31,60 @@ public class Filler {
         {
             for (int j = 0; j < count; j++)
             {
-                lhs[i][j] = Integer.parseInt(adapter.getItemByXY(i,j).getText().toString());
+                String s = adapter.getItemByXY(i,j).getText().toString();
+                lhs[i][j] = Double.parseDouble(s);
+
             }
         }
+
         for (int i = 0; i < count; i++)
         {
-            rhs[i] = Integer.parseInt(adapter.getItemByXY(count + 1,i).getText().toString());
+            String s  = adapter.getItemByXY(i,count).getText().toString();
+            rhs[i] = Double.parseDouble(s);
+
         }
     }
-    public int[][] getLhs(){
+    public double[][] getLhs(){
         return lhs;
     }
 
-    public int[] getRhs() {
+    public double[] getRhs() {
         return rhs;
+    }
+
+    public String printLhs()
+    {
+        StringBuilder build = new StringBuilder();
+        for (int i = 0; i < count; i++)
+        {
+            for (int j = 0; j < count;j ++)
+            {
+                build.append(lhs[i][j]);
+            }
+        }
+        return build.toString();
+    }
+
+    public String printRhs()
+    {
+        StringBuilder build = new StringBuilder();
+        for (int j = 0; j < count;j ++)
+        {
+            build.append(rhs[j]);
+        }
+        return build.toString();
+    }
+    public boolean checkNull()
+    {
+        boolean empty = true;
+        for (int i = 0; i < count; i ++)
+        {
+            for (int j = 0; j <= count; j++){
+                if (adapter.getItemByXY(i,j).toString().equals("")){
+                    empty = false;
+                }
+            }
+        }
+        return  empty;
     }
 }

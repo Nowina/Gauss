@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.nowina.gauss.R;
-import com.example.nowina.gauss.others.grid;
+import com.example.nowina.gauss.others.GridActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     String count = txt.getText().toString();
-                    Toast toast = Toast.makeText(getApplicationContext(), "OKAY", Toast.LENGTH_LONG);
-                    toast.show();
-                    Intent intent = new Intent(MainActivity.this, grid.class);
+                    Intent intent = new Intent(MainActivity.this, GridActivity.class);
                     intent.putExtra("Count", count);
                     MainActivity.this.startActivity(intent);
                 }
