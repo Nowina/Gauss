@@ -7,4 +7,5 @@
     <string name="buttonSubmit">Submit</string>
     <string name="buttonCalculate">Calculate</string>
     <string name="ToastNull">Fill all the values !!!</string>
+    <string name="ToastSingular">"Equation has no solution!"</string>
 </resources>

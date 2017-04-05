@@ -41,7 +41,15 @@ public class GridActivity extends AppCompatActivity {
                     filler.fill();
                     Matrix A = new Matrix(filler.getLhs());
                     Matrix B = new Matrix(filler.getRhs());
-                    Matrix x = A.solve(B);
+                    Matrix x = new Matrix(3,0);
+                    try
+                    {
+                        x = A.solve(B);
+                    }catch (RuntimeException e) { //handling exceptions from Matrix class --> Singular Matrix
+                        Toast toast1 = Toast.makeText(getApplicationContext(),getApplicationContext().getString(R.string.ToastSingular),Toast.LENGTH_SHORT);
+                        toast1.show();
+                        return;
+                    }
                     StringBuilder builder = new StringBuilder();
                     for (int i = 0; i < count; i++) {
                         builder.append(variables[i] + "= ");
